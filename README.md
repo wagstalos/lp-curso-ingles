@@ -15,10 +15,6 @@
 <img src="https://img.shields.io/static/v1?label=Status&message=OK&color=2ecc71&style=for-the-badge&logo="/>
 </h1>
 
-   <img src="https://github.com/wagstalos/projeto-hostinger/blob/master/img/screenshot.png" alt="">
-
-
-
 ### Features
 
 - [x] Treinar SASS
