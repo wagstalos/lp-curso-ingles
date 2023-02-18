@@ -1,9 +1,9 @@
 
 
-<h1 align="center"># Projeto hostinger </h1>
-
+<h1 align="center"># Projeto LP inglês </h1>
+t
 <h1 align="center">
-    <a href="https://wagstalos.github.io/projeto-hostinger/">🔗 link  do projeto</a>
+    <a href="https://wagstalos.github.io/lp-curso-ingles/">🔗 link  do projeto</a>
 </h1>
 
 ## Descrição do Projeto

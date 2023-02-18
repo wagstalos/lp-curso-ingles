@@ -33,6 +33,8 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+AOS.init();
+
 const items = document.querySelectorAll(".accordion button");
 
 function toggleAccordion() {
