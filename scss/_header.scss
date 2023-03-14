@@ -30,12 +30,14 @@ header{
                     padding: 15px;
                     border-radius: 20px;
                 }
-               a{
+               a,button{
                 display: flex;
                 align-items: center;
                 color: $blue-dark;
                 font-size: 1.6rem;
                 line-height: 1.9rem;
+                background-color: transparent;
+                cursor: pointer;
                 img{
                     margin-right: $gutter;
                 }
@@ -45,6 +47,9 @@ header{
                     line-height: 1.9rem;
                     color: $white;
                 }
+               }
+               button{
+                color: white;
                }
             }
         }

@@ -1,4 +1,6 @@
-AOS.init();
+function start() {
+  dataLayer.push({ pageTitle: document.title });
+}
 
 function swiperHome() {
   const swiper = new Swiper(".swiper", {
@@ -61,10 +63,28 @@ function displayFullYear(element) {
   year.innerText = getYear;
 }
 
+function gtm() {
+  let btn = document.getElementsByClassName("btn");
+
+  function gtmClickBtn() {
+    dataLayer.push({ event: "click_aula_gratis" });
+  }
+
+  function gtmClickBtnPurple() {
+    dataLayer.push({ event: "click_aula_gratis_purple" });
+  }
+
+  btn[0].addEventListener("click", gtmClickBtnPurple);
+  btn[1].addEventListener("click", gtmClickBtn);
+}
+
 const init = () => {
+  AOS.init();
+  start();
   swiperHome();
   accordionHome();
   displayFullYear(".myDate");
+  gtm();
 };
 
 init();
