@@ -3,13 +3,14 @@ function start() {
   const allCards = document.querySelectorAll(".card");
 
   allCards.forEach(function (itemAtual, index, array) {
-    itemAtual.addEventListener("mouseover", function () {
+    itemAtual.addEventListener("mouseleave", function () {
       dataLayer.push({
         event: "mouseover_card",
         ecommerce: {
           currency: "BRL",
           item_name: `card ${index}`,
         },
+        debug_mode: true,
       });
     });
   });
@@ -78,17 +79,56 @@ function displayFullYear(element) {
 
 function gtm() {
   let btn = document.getElementsByClassName("btn");
+  let btnWhats = document.getElementsByClassName("btn-whats");
+
+  function gtmClickBtnWhats() {
+    gtag("event", "whatsapp", { debug_mode: true });
+  }
 
   function gtmClickBtn() {
-    dataLayer.push({ event: "click_aula_gratis" });
+    gtag("event", "click_aula_gratis", { debug_mode: true });
   }
 
   function gtmClickBtnPurple() {
-    dataLayer.push({ event: "click_aula_gratis_purple" });
+    dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
+    dataLayer.push({
+      event: "purchase",
+      ecommerce: {
+        transaction_id: "T12345",
+        affiliation: "Online Store",
+        value: "59.89",
+        tax: "4.90",
+        shipping: "5.99",
+        currency: "EUR",
+        coupon: "SUMMER_SALE",
+        items: [
+          {
+            item_name: "Triblend Android T-Shirt",
+            item_id: "12345",
+            price: "15.25",
+            item_brand: "Google",
+            item_category: "Apparel",
+            item_variant: "Gray",
+            quantity: 1,
+          },
+          {
+            item_name: "Donut Friday Scented T-Shirt",
+            item_id: "67890",
+            price: 33.75,
+            item_brand: "Google",
+            item_category: "Apparel",
+            item_variant: "Black",
+            quantity: 1,
+          },
+        ],
+      },
+      debug_mode: true,
+    });
   }
 
   btn[0].addEventListener("click", gtmClickBtnPurple);
   btn[1].addEventListener("click", gtmClickBtn);
+  btnWhats[0].addEventListener("click", gtmClickBtnWhats);
 }
 
 const init = () => {
