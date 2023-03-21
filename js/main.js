@@ -1,5 +1,18 @@
 function start() {
   dataLayer.push({ pageTitle: document.title });
+  const allCards = document.querySelectorAll(".card");
+
+  allCards.forEach(function (itemAtual, index, array) {
+    itemAtual.addEventListener("mouseover", function () {
+      dataLayer.push({
+        event: "mouseover_card",
+        ecommerce: {
+          currency: "BRL",
+          item_name: `card ${index}`,
+        },
+      });
+    });
+  });
 }
 
 function swiperHome() {
@@ -79,7 +92,6 @@ function gtm() {
 }
 
 const init = () => {
-  AOS.init();
   start();
   swiperHome();
   accordionHome();
